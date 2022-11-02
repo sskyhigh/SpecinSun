@@ -24,11 +24,12 @@ public class specIntheSun extends JFrame implements ActionListener, KeyListener 
         setPanelSize();
         displayAfter.setEditable(false);
     }
+
     // Not sure how to calculate the formulas...
     // No matter how i tried.
     private double calculateTax(String num) {
         int a;
-        double total = 0;
+        double total;
         a = Integer.parseInt(num);
         if (a >= 0 && a < 9875) {
             total = a * 0.1;
@@ -69,9 +70,13 @@ public class specIntheSun extends JFrame implements ActionListener, KeyListener 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == calculateButton) {
-            read = enterData.getText();
-            calculateTax(read);
-            displayOnBox();
+            if (read.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Enter something");
+            } else {
+                read = enterData.getText();
+                calculateTax(read);
+                displayOnBox();
+            }
         }
         if (e.getSource() == Exit) {
             System.exit(1);
@@ -86,9 +91,13 @@ public class specIntheSun extends JFrame implements ActionListener, KeyListener 
     @Override
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-            read = enterData.getText();
-            calculateTax(read);
-            displayOnBox();
+            if (read.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Enter something");
+            } else {
+                read = enterData.getText();
+                calculateTax(read);
+                displayOnBox();
+            }
         }
         if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
             System.exit(1);
