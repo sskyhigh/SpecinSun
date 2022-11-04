@@ -1,6 +1,5 @@
 import javax.swing.*;
 import java.awt.event.*;
-
 public class specIntheSun extends JFrame implements ActionListener, KeyListener {
     private JLabel Taxable;
     private JTextField displayAfter;
